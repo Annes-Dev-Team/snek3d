@@ -9,10 +9,10 @@ int main() {
     InitWindow(800, 600, "Skibidi");
     SetTargetFPS(60);
     DisableCursor();
-    Snek3D::Player chick("chick.glb");
-    Snek3D::StaticObject apple("apple.glb");
+    Snek3D::Player chick("assets/chick.glb");
+    Snek3D::StaticObject apple("assets/apple.glb");
     Model terrain = Snek3D::procedure_terrain();
-    Texture2D grass = LoadTexture("grass.png");
+    Texture2D grass = LoadTexture("assets/grass.png");
     terrain.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = grass;
     chick.scale = 3;
     apple.scale = 5;
