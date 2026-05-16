@@ -6,7 +6,7 @@
 namespace Snek3D {
     struct CharacterModel {
         Model model;
-        float animframe = 0;
+        int animframe = 0;
         std::vector<ModelAnimation*> animations;
 
         ModelAnimation* walkanim;

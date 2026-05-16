@@ -41,14 +41,14 @@ void Snek3D::CharacterModel::update() {
     if (!current_animation) {
         return;
     }
-
+    /*
     if (!IsModelValid(model)) {
         return;
     }
 
     if (!IsModelAnimationValid(model, *current_animation)) {
         return;
-    }
+    }*/
     animframe++;
 
     if (animframe >= current_animation->keyframeCount) {
