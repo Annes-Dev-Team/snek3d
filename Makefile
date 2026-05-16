@@ -4,7 +4,7 @@ build:
 	c++ src/*.cpp bombs.cpp -g -Iinclude -o bin/test -lraylib -framework Cocoa -framework OpenGL -framework IOKit -framework CoreAudio -framework CoreGraphics
 
 web:
-	em++ -o bin/web/index.html /usr/local/lib/librlweb.a src/*.cpp test.cpp -Os -Iinclude -s USE_GLFW=3 -s ASYNCIFY --shell-file shell.html -DWEB --preload-file assets
+	em++ -o bin/web/index.html /usr/local/lib/librlweb.a src/*.cpp bombs.cpp -Os -Iinclude -s USE_GLFW=3 -s ASYNCIFY --shell-file shell.html -DWEB --preload-file assets
 
 webrun: web
 	emrun bin/web/index.html
