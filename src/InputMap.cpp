@@ -2,8 +2,8 @@
 #include "raylib/raylib.h"
 
 bool Snek3D::InputMap::is_down() {
-    for (int i : keys) {
-        if (IsKeyDown(i)) {
+    for (InputEvent i : events) {
+        if (i.is_down()) {
             return true;
         }
     }
@@ -11,19 +11,34 @@ bool Snek3D::InputMap::is_down() {
 }
 
 bool Snek3D::InputMap::is_pressed() {
-    for (int i : keys) {
-        if (IsKeyPressed(i)) {
+    for (InputEvent i : events) {
+        if (i.is_pressed()) {
             return true;
         }
     }
     return false;
 }
 
-bool Snek3D::InputMap::is_pressed_twice() {
-    for (int i : keys) {
-        if (IsKeyPressedRepeat(i)) {
-            return true;
-        }
+bool Snek3D::InputEvent::is_down() {
+    switch (type) {
+        case EVENT_KEY:
+            return IsKeyDown(value);
+        case EVENT_MOUSE:
+            return IsMouseButtonDown(value);
+        case EVENT_GAMEPAD:
+            return IsGamepadButtonDown(0, value);
+    }
+    return false;
+}
+
+bool Snek3D::InputEvent::is_pressed() {
+    switch (type) {
+        case EVENT_KEY:
+            return IsKeyPressed(value);
+        case EVENT_MOUSE:
+            return IsMouseButtonPressed(value);
+        case EVENT_GAMEPAD:
+            return IsGamepadButtonPressed(0, value);
     }
     return false;
 }

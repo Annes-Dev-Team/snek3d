@@ -16,6 +16,13 @@ int main() {
     terrain.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = grass;
     chick.scale = 3;
     apple.scale = 5;
+    Snek3D::InputMap map;
+    map.events = {
+        {Snek3D::EVENT_KEY, KEY_C},
+        {Snek3D::EVENT_KEY, KEY_F},
+        {Snek3D::EVENT_MOUSE, MOUSE_BUTTON_RIGHT}
+    };
+
     while (!WindowShouldClose()) {
 
         BeginDrawing();
@@ -26,6 +33,7 @@ int main() {
         apple.draw();
         DrawModel(terrain, {0,-3,0}, 1, WHITE);
         chick.end_perspective();
+        DrawText(TextFormat("%i", map.is_down()), 0, 0, 20, BLACK);
         EndDrawing();
     }
     CloseWindow();
