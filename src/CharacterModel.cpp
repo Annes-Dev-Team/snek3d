@@ -51,7 +51,7 @@ void Snek3D::CharacterModel::update() {
     }
     animframe++;
 
-    if (animframe >= current_animation->frameCount) {
+    if (animframe >= current_animation->keyframeCount) {
         animframe = 0;
     }
 
