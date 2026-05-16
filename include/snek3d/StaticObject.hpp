@@ -3,7 +3,7 @@
 
 namespace Snek3D {
     struct StaticObject {
-        Model model;
+        Model* model;
         float x;
         float y;
         float z;
@@ -11,6 +11,6 @@ namespace Snek3D {
         Color tint;
 
         void draw();
-        StaticObject(std::string path, float x = 0, float y = 0, float z = 0, float scale = 1, Color tint=WHITE);
+        StaticObject(Model* emodel, float x = 0, float y = 0, float z = 0, float scale = 1, Color tint=WHITE);
     };
 }
