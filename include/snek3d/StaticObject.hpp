@@ -1,5 +1,4 @@
 #include "raylib/raylib.h"
-#include <string>
 
 namespace Snek3D {
     struct StaticObject {
@@ -12,5 +11,6 @@ namespace Snek3D {
 
         void draw();
         StaticObject(Model* emodel, float x = 0, float y = 0, float z = 0, float scale = 1, Color tint=WHITE);
+        StaticObject(const char* path, float x = 0, float y = 0, float z = 0, float scale = 1, Color tint=WHITE);
     };
 }
