@@ -1,7 +1,7 @@
 .PHONY: build
 
 setup:
-	bear -- make
+	bear -- make build
 	
 build:
 	c++ src/*.cpp test.cpp -g -Iinclude -o bin/test -lraylib -lenet -framework Cocoa -framework OpenGL -framework IOKit -framework CoreAudio -framework CoreGraphics
