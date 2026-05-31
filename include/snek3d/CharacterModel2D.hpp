@@ -10,6 +10,7 @@ namespace Snek3D {
     };
     struct CharacterModel2D {
         int animframe = 0;
+        float animation_timer = 0.0f;
 
         std::vector<Animation> animations;
 
@@ -28,17 +29,18 @@ namespace Snek3D {
         /* load a folder of numbered images
             example:
             
-                load_animations("swim");
+                load_animations("player");
 
-                swim/
-                    0.png
-                    1.png
+                player/
+                    swim/
+                        0.png
+                        1.png
             */
         void load_animations(const std::string& path);
 
         std::vector<Texture2D*>* find_animation(const std::string& name);
 
-        void update();
+        void update(float fps);
 
         void draw(
             float x = 0,

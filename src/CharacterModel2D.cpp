@@ -76,18 +76,28 @@ void Snek3D::CharacterModel2D::load_animations(
     animframe = 0;
 }
 
-void Snek3D::CharacterModel2D::update()
+void Snek3D::CharacterModel2D::update(float fps)
 {
+    float delta = GetFrameTime();
     if (!current_animation)
         return;
 
     if (current_animation->empty())
         return;
 
-    animframe++;
+    animation_timer += delta;
 
-    if (animframe >= current_animation->size())
-        animframe = 0;
+    float frame_duration = 1.0f / fps;
+
+    while (animation_timer >= frame_duration)
+    {
+        animation_timer -= frame_duration;
+
+        animframe++;
+
+        if (animframe >= current_animation->size())
+            animframe = 0;
+    }
 }
 
 void Snek3D::CharacterModel2D::draw(
