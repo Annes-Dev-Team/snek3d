@@ -40,3 +40,7 @@ BoundingBox Snek3D::make_bounding_box(float x, float y, float z,
         .max = {maxX, maxY, maxZ}
     };
 }
+
+void Snek3D::set_model_texture(Model* model, Snek3D::Texture* tex) {
+    model->materials[0].maps[MATERIAL_MAP_ALBEDO].texture = tex->tex;
+}
