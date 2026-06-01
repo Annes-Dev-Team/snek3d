@@ -23,6 +23,8 @@ namespace Snek3D {
 
         std::vector<Texture2D*>* current_animation = nullptr;
 
+        bool flipped=0;
+
         CharacterModel2D(const std::string& path);
         CharacterModel2D();
 

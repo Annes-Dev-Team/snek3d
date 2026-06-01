@@ -115,12 +115,22 @@ void Snek3D::CharacterModel2D::draw(
     Texture2D* tex =
         (*current_animation)[animframe];
 
-    DrawTextureEx(
+    /*DrawTextureEx(
         *tex,
         {x, y},
         0.0f,
         scale,
-        tint);
+        tint);*/
+    DrawTexturePro(*tex, 
+
+        flipped ? Rectangle{static_cast<float>(tex->width),0, -static_cast<float>(tex->width), static_cast<float>(tex->height)} :
+         Rectangle{0,0,static_cast<float>(tex->width), static_cast<float>(tex->height)}, 
+
+        {x,y, tex->width * scale, tex->height * scale},
+        {0,0}, 
+        0,
+        tint
+    );
 }
 
 void Snek3D::CharacterModel2D::draw_advanced(

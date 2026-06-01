@@ -1,12 +1,12 @@
 #include "raylib/raylib.h"
-#include "snek3d/CharacterModel2D.hpp"
+#include "snek3d/Player2D.hpp"
 
 int main() {
     InitWindow(800, 600, "2D");
-    Snek3D::CharacterModel2D player("assets/dragon");
+    Snek3D::Player2D player("assets/dragon");
     SetTargetFPS(60);
     while (!WindowShouldClose()) {
-        player.update(5);
+        player.update(5, 5);
         BeginDrawing();
         ClearBackground(RAYWHITE);
         player.draw();
